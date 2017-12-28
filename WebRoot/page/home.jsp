@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			border:2px solid white;
 		}
 		.left ul li{
-			margin-top:20px;
+			margin-top:30px;
 		}
 		.right{
 			height:80%;
@@ -84,6 +84,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       		<ul>
       			<a href="<%=path%>/teacher/toHome.do"><li style="color:blue"><strong>管理员列表</strong></li></a>
       			<a href="<%=path%>/student/toStudentList.do"><li>学生列表</li></a>
+      			<a href="<%=path%>/student/toAddStudent.do"><li>学生添加</li></a>
+      			<a href="<%=path%>/student/toAltStudent.do"><li>学生修改</li></a>
+      			<a href="<%=path%>/student/toDelStudent.do"><li>学生删除</li></a>
       		</ul>
       	</div>
       	<div class="right">

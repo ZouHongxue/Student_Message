@@ -38,7 +38,8 @@ public class TeacherController {
 	}
 	
 	@RequestMapping("/toHome")
-	public String toHome(){
+	public String toHome(Model model){
+		model.addAttribute("teachers", teacherService.getAllTeachers());
 		return "home";
 	}
 }

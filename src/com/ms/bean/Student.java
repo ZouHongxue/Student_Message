@@ -6,7 +6,7 @@ public class Student {
 	private String name;
 	private String s_class;
 	private String sex;
-	private int age;
+	private String age;
 	public String getId() {
 		return id;
 	}
@@ -31,10 +31,10 @@ public class Student {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public int getAge() {
+	public String getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	public void setAge(String age) {
 		this.age = age;
 	}
 	

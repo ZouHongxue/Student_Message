@@ -18,13 +18,11 @@ public class JdbcUtil {
 			ds = BasicDataSourceFactory.createDataSource(properties);
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
 	public static DataSource getDataSource(){
-		
 		return ds;
 	}
 }

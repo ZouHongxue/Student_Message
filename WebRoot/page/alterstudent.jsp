@@ -68,14 +68,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			margin-left:0px;
 			color:black;
 		}
-		.tb{
-			width:60%;
-			text-align:center;
+		.tb tr{
 			border:1px solid black;
-			margin:50px auto;
 		}
 		.tb td{
-			border:1px solid black;
 			color:black;
 		}
 	</style>
@@ -86,39 +82,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	<h1>学生管理系统</h1>
       	<div class="left">
       		<ul>
-      			<a href="<%=path%>/teacher/toHome.do"><li>管理员列表</li></a>
-      			<a href="<%=path%>/student/toStudentList.do"><li style="color:blue"><strong>学生列表</strong></li></a>
+      			<a href="<%=path%>/teacher/toHome.do"><li><strong>管理员列表</strong></li></a>
+      			<a href="<%=path%>/student/toStudentList.do"><li>学生列表</li></a>
       			<a href="<%=path%>/student/toAddStudent.do"><li>学生添加</li></a>
-      			<a href="<%=path%>/student/toAltStudent.do"><li>学生修改</li></a>
+      			<a href="<%=path%>/student/toAltStudent.do"><li style="color:blue">学生修改</li></a>
       			<a href="<%=path%>/student/toDelStudent.do"><li>学生删除</li></a>
       		</ul>
       	</div>
       	<div class="right">
-      		<h3>学生列表</h3>
-      		<table class="tb">
-      			<tr>
-	      			<thead>
-	      				<td>学号</td>
-	      				<td>姓名</td>
-	      				<td>班级</td>
-	      				<td>性别</td>
-	      				<td>年龄</td>
-	      			</thead>
-      			</tr>
-      			<c:if test="${not empty students }">
-      				<c:forEach var="student" items="${students }" >
-	      				<tr>
-	      					<td><c:out value="${student.id }"/></td>
-	      					<td><c:out value="${student.name }"/></td>
-	      					<td><c:out value="${student.s_class }"/></td>
-	      					<td><c:out value="${student.sex }"/></td>
-	      					<td><c:out value="${student.age }"/></td>
-	      				</tr>
-      				</c:forEach>
-      			</c:if>
-      		</table>
+      		<h3>修改学生信息</h3>
+      		<div>请确保学号正确<br/><br/>
+      			学生学号:<input id="id"/><br/><br/>
+      			学生姓名:<input id="name"/><br/><br/>
+      			学生班级:<input id="s_class"/><br/><br/>
+      			学生性别:<input id="sex"/><br/><br/>
+      			学生年龄:<input id="age"/><br/><br/>
+      			<input type="button" onclick="submit()" value="修改学生信息">
+      		</div>
       	</div>
       </div>
   </body>
-  
+  <script type="text/javascript" src="<%=path %>/js/jquery.min.js"></script>
+  <script type="text/javascript">
+  	 function submit(){
+  	 	$.ajax({
+  	 		url:"<%=path%>/student/alterStudent.do",
+  	 		data:{
+  	 			id:$("#id").val(),
+  	 			name :$("#name").val(),
+  	 			s_class :$("#s_class").val(),
+  	 			sex :$("#sex").val(),
+  	 			age :$("#age").val(),
+  	 		},
+  	 		success:function(msg){
+  	 			alert(msg);
+  	 		}
+  	 	})
+  	 }
+  </script>
 </html>
